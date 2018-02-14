@@ -36,6 +36,7 @@ You're reading it!
 
 ### Exercise 1, 2 and 3 pipeline implemented
 #### 1. Complete Exercise 1 steps. Pipeline for filtering and RANSAC plane fitting implemented.
+The purpouse for exercise was to limit the ammount of point cloud data to voxels that are neede for object recognition. Firstly the data is downsampled with to a leaf size of 1x1x1 cm. Than all the unwanted data below the table is removed with passthrough filter. At the end RANSAC filter is used to find a flat surface (the table). The rest of the data (the outlier) assigned to a variable for further proccesci (clustering).
 
 #### 2. Complete Exercise 2 steps: Pipeline including clustering for segmentation implemented.  
 
