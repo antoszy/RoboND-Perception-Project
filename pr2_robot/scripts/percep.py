@@ -225,8 +225,6 @@ def pr2_mover(object_list):
 		pick_pose = Pose()
 		item_index = labels.index(obj['name'])
 		centroid = centroids[item_index]
-		print(centroid)
-		print(type(centroid))
 		pick_pose.position.x, pick_pose.position.y, pick_pose.position.z = centroid.tolist()
 
 
@@ -250,7 +248,7 @@ def pr2_mover(object_list):
 	
 
 	# TODO: Output your request parameters into output yaml file
-	send_to_yaml('world1out',yaml_dict_list)
+	send_to_yaml('output_3.yaml',yaml_dict_list)
 
 
 if __name__ == '__main__':
