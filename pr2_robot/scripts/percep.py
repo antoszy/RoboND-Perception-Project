@@ -63,6 +63,7 @@ def pcl_callback(pcl_msg):
 	# Any point with a mean distance larger than global (mean distance+1*std_dev) will be considered outlier
 	outlier_filter.set_std_dev_mul_thresh(0.) 
 	cloud_filtered = outlier_filter.filter() # Finally call the filter function for magic
+	pub_noise.publish(pcl_to_ros(cloud_filtered))
 
 	    # TODO: Voxel Grid Downsampling
 	vox = cloud_filtered.make_voxel_grid_filter()
@@ -87,6 +88,8 @@ def pcl_callback(pcl_msg):
 	passthrough.set_filter_limits(axis_min, axis_max)
 	cloud_filtered = passthrough.filter()
 
+	pub_passthrough.publish(pcl_to_ros(cloud_filtered))
+
 	    # TODO: RANSAC Plane Segmentation
 	seg = cloud_filtered.make_segmenter()
 	seg.set_model_type(pcl.SACMODEL_PLANE)
@@ -98,6 +101,9 @@ def pcl_callback(pcl_msg):
 	    # TODO: Extract inliers and outliers
 	cloud_table = cloud_filtered.extract(inliers, negative = False)
 	cloud_objects = cloud_filtered.extract(inliers, negative = True)
+	pub_table.publish(pcl_to_ros(cloud_table))
+	pub_table_outlier.publish(pcl_to_ros(cloud_objects))
+
 
 	    # TODO: Euclidean Clustering
 	white_cloud = XYZRGB_to_XYZ(cloud_objects)# Apply function to convert XYZRGB to XYZ
@@ -261,6 +267,11 @@ if __name__ == '__main__':
 
 	# TODO: Create Publishers
 	points_pub = rospy.Publisher("/points", PointCloud2, queue_size=1)
+	pub_table = rospy.Publisher("/pub_table", PointCloud2, queue_size=1)
+	pub_table_outlier = rospy.Publisher("/pub_table_outlier", PointCloud2, queue_size=1)
+	pub_cluster = rospy.Publisher("/pub_cluster", PointCloud2, queue_size=1)
+	pub_noise = rospy.Publisher("/pub_noise", PointCloud2, queue_size=1)
+	pub_passthrough = rospy.Publisher("/pub_passthrough", PointCloud2, queue_size=1)
 	object_markers_pub = rospy.Publisher("/object_markers", Marker, queue_size=1)
 	detected_objects_pub = rospy.Publisher("/detected_objects", DetectedObjectsArray, queue_size=1)
 
