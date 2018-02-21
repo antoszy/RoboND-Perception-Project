@@ -8,9 +8,9 @@ object_list:
       y: 0.0
       z: 0.0
     position:
-      x: 0.5716148018836975
-      y: -0.24849733710289001
-      z: 0.7049050331115723
+      x: 0.5715612769126892
+      y: -0.24863973259925842
+      z: 0.704886794090271
   place_pose:
     orientation:
       w: 0.0
@@ -31,9 +31,9 @@ object_list:
       y: 0.0
       z: 0.0
     position:
-      x: 0.5604962110519409
-      y: 0.0038658350240439177
-      z: 0.67413330078125
+      x: 0.5605993270874023
+      y: 0.0038374029099941254
+      z: 0.6743683218955994
   place_pose:
     orientation:
       w: 0.0
@@ -46,6 +46,29 @@ object_list:
       z: 0.605
   test_scene_num: 1
 - arm_name: left
+  object_name: book
+  pick_pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    position:
+      x: 0.5804361701011658
+      y: 0.27925288677215576
+      z: 0.7228608727455139
+  place_pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    position:
+      x: 0
+      y: 0.71
+      z: 0.605
+  test_scene_num: 1
+- arm_name: left
   object_name: soap2
   pick_pose:
     orientation:
@@ -54,9 +77,32 @@ object_list:
       y: 0.0
       z: 0.0
     position:
-      x: 0.4449244439601898
-      y: 0.22701312601566315
-      z: 0.6768651604652405
+      x: 0.44492748379707336
+      y: 0.22701005637645721
+      z: 0.6768734455108643
+  place_pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    position:
+      x: 0
+      y: 0.71
+      z: 0.605
+  test_scene_num: 1
+- arm_name: left
+  object_name: glue
+  pick_pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    position:
+      x: 0.6315057277679443
+      y: 0.13064934313297272
+      z: 0.6791372299194336
   place_pose:
     orientation:
       w: 0.0
